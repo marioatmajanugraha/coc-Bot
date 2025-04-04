@@ -1,52 +1,101 @@
-# Clash of Coins Auto Claim Bot 💰
+## Clash of Coins - BOT 🤖
 
-Script ini digunakan untuk melakukan klaim otomatis pada game Clash of Coins menggunakan API resmi.
+Script ini dirancang untuk mengotomatiskan proses klaim game activity di **Clash of Coins** 
+
+---
 
 ## 📌 Fitur
-- ✅ Auto-claim rewards secara otomatis
-- 🔌 Dukungan proxy (`proxy.txt`) untuk koneksi aman
-- 🎁 Menampilkan hasil reward setelah klaim
-- ⚡ Auto-relogin setiap 15 menit untuk mendapatkan token baru
-- 🛠 Monitoring status akun (level, XP, banned status, dll.)
 
-## New Update :
-- Optimalisasi proxy switching untuk koneksi lebih stabil
-- Auto-relogin dengan metode SIWE untuk meningkatkan keamanan
+- ✅ Auto claim rewards (points dan coins) menggunakan token dari `tokens.txt` dan wallet dari `wallets.json`
+- 🔄 Pengecekan otomatis ketersediaan claim setiap 10 menit atau sesuai waktu server
+- 🔌 Dukungan proxy (`proxy.txt`) untuk koneksi aman
+- 🎁 Menampilkan hasil klaim (points dan coins) setelah transaksi berhasil
+- ⏳ Sinkronisasi waktu tunggu (times remaining) dengan server: 10 menit jika claim tersedia, atau sesuai waktu server jika belum tersedia
+- 📋 Log transaksi lengkap: wallet address, signed transaction, dan status konfirmasi
+- ⚡ Pilihan untuk menggunakan proxy melalui prompt interaktif
+
+---
 
 ## 🚀 Cara Penggunaan
-1. **Clone repository ini**
-   ```sh
-   git clone https://github.com/marioatmajanugraha/coc-Bot.git
-   cd coc-Bot
-   ```
-2. **Install dependencies**
-   ```sh
-   npm install
-   ```
-3. **Siapkan file konfigurasi**
-   - Buat file `wallets.json` dan isi dengan wallet yang akan digunakan.
-   - (Opsional) Buat `proxy.txt` jika ingin menggunakan proxy.
 
-4. **Jalankan script**
-   ```sh
-   npm run obfuscate
-   npm start
-   
-   or Double click on run.bat
-   ```
+### 1. Clone repository ini
 
-5. **Ikuti instruksi di terminal**
-   - Pilih apakah ingin menggunakan proxy
-   - Script akan otomatis melakukan klaim rewards dan monitoring akun
+```bash
+git clone https://github.com/marioatmajanugraha/coc-Bot.git
+cd coc-Bot
+```
+
+### 2. Install dependencies
+
+```bash
+npm install axios chalk cfonts http-proxy-agent socks-proxy-agent ethers fs zstd-codec
+```
+
+### 3. Siapkan file yang diperlukan
+
+#### 🔹 `tokens.txt`
+
+Isi dengan token akses, satu token per baris. Contoh:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+#### 🔹 `wallets.json`
+
+Isi dengan data wallet dalam format berikut:
+
+```json
+[
+  {
+    "address": "your_wallet_address_here",
+    "privateKey": "your_private_key_here"
+  }
+]
+```
+
+#### 🔹 (Opsional) `proxy.txt`
+
+Jika ingin menggunakan proxy, isi dengan format berikut:
+
+```
+http://username:password@host:port
+socks5://username:password@host:port
+```
+
+---
+
+### 4. Jalankan script
+
+```bash
+node index.obf.js
+```
+
+### 5. Ikuti instruksi
+
+- Pilih apakah ingin menggunakan proxy (`y/n`)
+- Script akan berjalan otomatis, memproses token, dan melakukan klaim reward jika tersedia
+- Waktu tunggu akan disesuaikan otomatis (10 menit jika tersedia, atau waktu dari server jika belum tersedia)
+
+---
 
 ## ⚠️ Disclaimer
-- Gunakan script ini dengan bijak.
-- Developer tidak bertanggung jawab atas penyalahgunaan.
+
+Gunakan script ini dengan bijak dan sesuai aturan Clash of Coins.  
+**Developer tidak bertanggung jawab atas penyalahgunaan atau banned akun.**
+
+---
 
 ## 🤝 Kontribusi
-Jika ingin berkontribusi, silakan fork repo ini dan ajukan pull request!
+
+Ingin menambahkan fitur baru atau perbaikan?  
+Silakan **fork** repo ini dan buat **pull request**!  
+Kontribusi kalian sangat dihargai 🙌
+
+---
 
 ## 📞 Kontak
-Jika ada pertanyaan, hubungi: [@balveerxyz](https://t.me/balveerxyz)
 
-Join komunitas: [Airdrop 888](https://t.me/airdroplocked)
+- Telegram: [@balveerxyz](https://t.me/balveerxyz)
+- Channel Info Airdrop: [t.me/airdroplocked](https://t.me/airdroplocked)
